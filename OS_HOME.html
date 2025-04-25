@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced Disk Scheduling Simulator</title>
+  <link rel="stylesheet" href="OS_CSS.css" />
+  
+</head>
+<body>
+  <div class="container">
+    <h1>Advanced Disk Scheduling Simulator</h1>
+
+    <div class="input-group">
+      <div class="input-field">
+        <label for="requests">Disk Request Queue:</label>
+        <input type="text" id="requests" placeholder="Example: 458,783,237,922,114,624,365,467" />
+      </div>
+
+      <div class="input-field">
+        <label for="initial">Initial Head Location:</label>
+        <input type="number" id="initial" placeholder="Range: 0-999" />
+      </div>
+
+      <div class="input-field">
+        <label for="algorithm">Scheduling Algorithm:</label>
+        <select id="algorithm">
+          <option value="FCFS">First Come First Served (FCFS)</option>
+          <option value="SSTF">Shortest Seek Time First (SSTF)</option>
+          <option value="SCAN">SCAN (Elevator)</option>
+          <option value="CSCAN">Circular SCAN (C-SCAN)</option>
+          <option value="LOOK">LOOK</option>
+          <option value="CLOOK">Circular LOOK (C-LOOK)</option>
+        </select>
+      </div>
+    </div>
+
+    <button id="visualize">Start Simulation</button>
+
+    <div class="visualization-container">
+      <!-- Graph View -->
+      <div class="visualization-box">
+        <h3>Performance Analysis Graph</h3>
+        <div id="disk-area" class="disk-area">
+          <!-- Corner decorations -->
+          <div class="corner corner-top-left"></div>
+          <div class="corner corner-top-right"></div>
+          <div class="corner corner-bottom-left"></div>
+          <div class="corner corner-bottom-right"></div>
+          
+          <!-- Axis labels -->
+          <div class="y-axis-label">Seek Operations →</div>
+          <div class="x-axis-label">Disk Position (Cylinders) →</div>
+          
+          <!-- Scanline effect -->
+          <div class="scanline"></div>
+        </div>
+      </div>
+
+      <!-- Simulator View -->
+      <div class="visualization-box">
+        <h3>Real-time Disk Movement</h3>
+        <div id="disk-simulator" class="disk-simulator">
+          <!-- Disk Track Visualization -->
+          <div class="disk-track">
+            <div class="disk-head"></div>
+            <div class="track-numbers">
+              <span>0</span>
+              <span>250</span>
+              <span>500</span>
+              <span>750</span>
+              <span>999</span>
+            </div>
+            <div class="track-line"></div>
+            <div class="request-points"></div>
+          </div>
+
+          <!-- Simulator Stats -->
+          <div class="simulator-stats">
+            <div class="stat-item">
+              <span class="stat-label">Head Position</span>
+              <span id="current-position" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Pending Request</span>
+              <span id="next-request" class="stat-value">-</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Head Movement</span>
+              <span id="head-direction" class="stat-value">-</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info">
+      <p><strong>Request Sequence:</strong> <span id="seek-sequence"></span></p>
+      <p id="metrics-info"></p>
+    </div>
+  </div>
+
+  <script src="OS_SCRIPT.js"></script>
+  
+</body>
+</html>
