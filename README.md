@@ -1,8 +1,8 @@
 # Advanced Disk Scheduling Stimulator
 
-Its a tool designed to model and visualize the behavior of various disk scheduling algorithms in an operating system. It goes 
-beyond basic simulators by offering more features, detailed analysis, and a richer user experience...
+
 ------------------------------------------------------------------------------------------------------------------------------
+
 # Basic Algorithms
 1. First-Come-First-Served (FCFS)
 2.  Shortest Seek Time First (SSTF)   
@@ -11,6 +11,7 @@ beyond basic simulators by offering more features, detailed analysis, and a rich
 5. LOOK
 6. C-LOOK
 -------------------------------------------------------------------------------------------------------------------------------
+
 # Comprehensive Performance Metrics
 Beyond just the total head movement (seek distance), an advanced simulator calculates and displays various performance metrics:
 1. Average Seek Time: A crucial indicator of efficiency.
